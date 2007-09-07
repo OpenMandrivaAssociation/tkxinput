@@ -1,6 +1,6 @@
 %define	name	tkxinput
 %define	version	1.0
-%define	release	%mkrel 9
+%define	release	%mkrel 10
 
 Summary:	A Tk extension to handle additional input devices in X11
 Name:		%{name}
