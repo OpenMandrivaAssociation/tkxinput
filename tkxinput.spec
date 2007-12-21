@@ -12,6 +12,7 @@ Patch1:		tkxinput-1.0.wacom.patch
 License:	GPL
 Group:		System/X11
 Url:		http://freshmeat.net/redir/tkxinput/22191/url_homepage/tkxinput/
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	libx11-devel libxi-devel tk tk-devel tcl tcl-devel
 
 %description
