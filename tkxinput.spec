@@ -1,11 +1,10 @@
 %define	name	tkxinput
 %define	version	1.0
-%define	release	%mkrel 10
 
 Summary:	A Tk extension to handle additional input devices in X11
 Name:		%{name}
 Version:	%{version}
-Release:	%{release}
+Release:	%mkrel 11
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		tkxinput-1.0.tk8.3.patch
 Patch1:		tkxinput-1.0.wacom.patch
