@@ -4,7 +4,7 @@
 Summary:	A Tk extension to handle additional input devices in X11
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel 11
+Release:	%mkrel 12
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		tkxinput-1.0.tk8.3.patch
 Patch1:		tkxinput-1.0.wacom.patch
