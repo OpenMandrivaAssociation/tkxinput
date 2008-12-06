@@ -32,7 +32,7 @@ one application to an other one.
 sed -i -e 's,$(prefix)/lib,%{buildroot}%{tcl_sitearch},g' Makefile
 
 %build
-%make CFLAGS="%{optflags} -fPIC" TCL_LIB=tcl8.6 TK_LIB=tk8.6 X11_LIB_PATH=%{_libdir}
+%make CFLAGS="%{optflags} -fPIC" TCL_LIB=tcl%{tcl_version} TK_LIB=tk%{tcl_version} X11_LIB_PATH=%{_libdir}
 
 %install
 rm -rf %{buildroot}
