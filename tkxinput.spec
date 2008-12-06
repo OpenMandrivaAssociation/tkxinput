@@ -1,18 +1,18 @@
-%define	name	tkxinput
-%define	version	1.0
-
 Summary:	A Tk extension to handle additional input devices in X11
-Name:		%{name}
-Version:	%{version}
+Name:		tkxinput
+Version:	1.0
 Release:	%mkrel 12
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		tkxinput-1.0.tk8.3.patch
 Patch1:		tkxinput-1.0.wacom.patch
-License:	GPL
+License:	LGPLv2+
 Group:		System/X11
-Url:		http://freshmeat.net/redir/tkxinput/22191/url_homepage/tkxinput/
+URL:		http://freshmeat.net/redir/tkxinput/22191/url_homepage/tkxinput/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	libx11-devel libxi-devel tk tk-devel tcl tcl-devel
+BuildRequires:	libx11-devel
+BuildRequires:	libxi-devel
+BuildRequires:	tk-devel
+BuildRequires:	tcl-devel
 
 %description
 The package provides an extension to Tk that add input device
@@ -26,20 +26,24 @@ one application to an other one.
 %setup -q
 %patch0 -p1 -b .tk8
 %patch1 -p1 -b .wacom
+# quick hack to fix install location...the makefile is way too simple
+# to make a proper fix easy without completely re-doing it - AdamW
+# 2008/12
+sed -i -e 's,$(prefix)/lib,%{buildroot}%{tcl_sitearch},g' Makefile
 
 %build
-%make CFLAGS="$RPM_OPT_FLAGS -fPIC" TCL_LIB=tcl8.5 TK_LIB=tk8.5 X11_LIB_PATH=%{_libdir}
+%make CFLAGS="%{optflags} -fPIC" TCL_LIB=tcl8.6 TK_LIB=tk8.6 X11_LIB_PATH=%{_libdir}
 
 %install
-rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT%{_prefix}/lib/TkXInput $RPM_BUILD_ROOT%{_bindir}
-make install prefix=$RPM_BUILD_ROOT%{_prefix}
+rm -rf %{buildroot}
+mkdir -p %{buildroot}%{tcl_sitearch}/TkXInput %{buildroot}%{_bindir}
+make install prefix=%{buildroot}%{_prefix}
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
 %doc README*
-%{_prefix}/lib/TkXInput
+%{tcl_sitearch}/TkXInput
 %{_bindir}/*
