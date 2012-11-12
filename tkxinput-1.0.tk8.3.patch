@@ -1,0 +1,22 @@
+--- tkxinput-1.0/Makefile.fred	Mon Nov  8 13:39:09 1999
++++ tkxinput-1.0/Makefile	Tue Mar  6 21:12:27 2001
+@@ -28,8 +28,8 @@
+ prefix = /usr
+ X11_LIB_PATH = /usr/X11R6/lib
+ TCL_LIB_PATH = /usr/lib
+-TCL_LIB=tcl8.0
+-TK_LIB=tk8.0
++TCL_LIB=tcl8.3
++TK_LIB=tk8.3
+ TCL_INCLUDE = /usr/include
+ X_INCLUDE = /usr/X11R6/include
+ CFLAGS= -g -Wall
+@@ -41,7 +41,7 @@
+ 	gcc $(CFLAGS) -D'VERSION="$(VERSION)"' -I$(TCL_INCLUDE) -I$(X_INCLUDE) -c xi.c
+ xi$(VERSION).so: xi.o
+ 	ld -shared xi.o -o xi$(VERSION).so -L$(X11_LIB_PATH) \
+-		-ltk8.0 -ltcl8.0 -lXi -lX11
++		-l$(TK_LIB) -l$(TCL_LIB) -lXi -lX11 -lc
+ 
+ install:
+ 	install -m644 xi$(VERSION).so $(prefix)/lib/TkXInput

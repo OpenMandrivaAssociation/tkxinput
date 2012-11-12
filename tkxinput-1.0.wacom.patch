@@ -1,0 +1,11 @@
+--- tkxinput-1.0/calibrate.fred	Tue Nov  9 10:49:03 1999
++++ tkxinput-1.0/calibrate	Fri Apr 13 11:31:45 2001
+@@ -171,7 +171,7 @@
+ # Need some more work to decide what to do
+ # for the tablets in general. It is not exactly
+ # a calibration but rather a zone mapping.
+-#set drivers(Wacom) "0 0 0"
++set drivers(Wacom) "0 0 0"
+ 
+ 
+ 
