@@ -4,7 +4,7 @@
 Summary:	A Tk extension to handle additional input devices in X11
 Name:		tkxinput
 Version:	1.0
-Release:	26
+Release:	27
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		tkxinput-1.0.tk8.3.patch
 Patch1:		tkxinput-1.0.wacom.patch
@@ -100,12 +100,12 @@ make install prefix=%{buildroot}%{_prefix}
 - rebuilt against soname aware deps (tcl/tk)
 - fix deps
 
-* Tue May 03 2005 Per Øyvind Karlsen <pkarlsen@mandriva.com> 1.0-7mdk
+* Tue May 03 2005 Per Ã˜yvind Karlsen <pkarlsen@mandriva.com> 1.0-7mdk
 - compile with -fPIC (fixes build on x86_64)
 - lib64 path fix
 - fix non-standard-group
 
-* Fri May 21 2004 Per �yvind Karlsen <peroyvind@linux-mandrake.com> 1.0-6mdk
+* Fri May 21 2004 Per Øyvind Karlsen <peroyvind@linux-mandrake.com> 1.0-6mdk
 - fix buildrequires
 - added url
 - cleanups
